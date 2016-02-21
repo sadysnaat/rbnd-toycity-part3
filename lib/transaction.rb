@@ -27,6 +27,10 @@ class Transaction
   private
 
   def perform_transaction
-    @product.stock -= 1
+    if @product.stock < 1
+      raise OutOfStockError, "'#{@product.title}' is out of stock."
+    else
+      @product.stock -= 1
+    end
   end
 end
