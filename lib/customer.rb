@@ -8,6 +8,10 @@ class Customer
     add_to_customers
   end
 
+  def purchase(product)
+    transaction = Transaction.new(self, product)
+  end
+
   def self.all
     @@customers
   end
