@@ -3,12 +3,19 @@ require_relative "lib/customer"
 require_relative "lib/product"
 require_relative "lib/transaction"
 require_relative "lib/return"
+require_relative "lib/brand.rb"
+
+
+# BRANDS
+
+legoBrand = Brand.new(name: "LEGO")
+nanoBlockBrand = Brand.new(name: "Nano Block")
 
 # PRODUCTS
 
-Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
-Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12)
-Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0)
+Product.new(title: "LEGO Iron Man vs. Ultron", brand: legoBrand, price: 22.99, stock: 55)
+Product.new(title: "Nano Block Empire State Building", brand: nanoBlockBrand, price: 49.99, stock: 12)
+Product.new(title: "LEGO Firehouse Headquarter", brand: legoBrand, price: 199.99, stock: 0)
 
 puts Product.all.count # Should return 3
 

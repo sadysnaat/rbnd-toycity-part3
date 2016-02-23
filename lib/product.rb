@@ -1,5 +1,5 @@
 class Product
-  attr_reader :title, :price, :stock
+  attr_reader :title, :price, :stock, :brand
   attr_writer :stock
 
   @@products = []
@@ -8,6 +8,7 @@ class Product
     @title = options[:title]
     @price = options[:price]
     @stock = options[:stock]
+    @brand = options[:brand]
     add_to_products
   end
 
@@ -37,7 +38,7 @@ class Product
   def add_to_products
     all_products = @@products.map { |product| product.title }
     if all_products.include? @title
-      raise DuplicateProductError, "'#{title}' already exists."
+      raise DuplicateProductError, "'#{self.title}' already exists."
     end
     @@products << self
   end
