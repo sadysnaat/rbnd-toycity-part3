@@ -8,6 +8,7 @@ class Transaction
     @@id += 1
     @customer = customer
     @product = product
+    @timestamp = Time.now()
     perform_transaction
     @@transactions << self
   end
