@@ -22,6 +22,7 @@ class Customer
         return customer
       end
     end
+    raise CustomerNotFoundError, "No customer with name '#{name}'."
   end
 
   private

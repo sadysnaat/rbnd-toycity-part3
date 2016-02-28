@@ -8,14 +8,14 @@ require_relative "lib/brand.rb"
 
 # BRANDS
 
-legoBrand = Brand.new(name: "LEGO")
-nanoBlockBrand = Brand.new(name: "Nano Block")
+lego_brand = Brand.new(name: "LEGO")
+nanoblock_brand = Brand.new(name: "Nano Block")
 
 # PRODUCTS
 
-Product.new(title: "LEGO Iron Man vs. Ultron", brand: legoBrand, price: 22.99, stock: 55)
-Product.new(title: "Nano Block Empire State Building", brand: nanoBlockBrand, price: 49.99, stock: 12)
-Product.new(title: "LEGO Firehouse Headquarter", brand: legoBrand, price: 199.99, stock: 0)
+Product.new(title: "LEGO Iron Man vs. Ultron", brand: lego_brand, price: 22.99, stock: 55)
+Product.new(title: "Nano Block Empire State Building", brand: nanoblock_brand, price: 49.99, stock: 12)
+Product.new(title: "LEGO Firehouse Headquarter", brand: lego_brand, price: 199.99, stock: 0)
 
 puts Product.all.count # Should return 3
 
@@ -73,6 +73,31 @@ puts transaction2.product == nanoblock # Should return true
 # walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
 
+# Return an item against transaction2
+puts transaction2.product.stock # Should return 10
+
 returns = Return.new(transaction2)
 
-puts transaction2.product.stock
+puts transaction2.product.stock # Should return 11, because a return has been made
+
+
+# Find Transactions by Customer
+transactions_from_walter = Transaction.find_by_customer(walter)
+
+puts transactions_from_walter
+
+
+transactions_for_nanoblock = Transaction.find_by_product(nanoblock)
+
+puts transactions_for_nanoblock
+
+
+julia = Customer.find_by_name("Julia Van Cleve")
+
+ironman = Product.find_by_title("LEGO Iron Man vs. Ultron")
+
+julia.purchase(ironman)
+
+transactions_for_lego = Transaction.find_by_brand(lego_brand)
+
+puts transactions_for_lego

@@ -3,10 +3,13 @@ class Return
   @@returns = []
 
   def initialize(transaction)
+    #Return requires a transaction against which return is being made
+    @id = @@id
     @transaction = transaction
     @timestamp = Time.now()
     perform_return
     @@returns << self
+    @@id += 1
   end
 
   private

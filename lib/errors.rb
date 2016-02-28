@@ -9,3 +9,9 @@ end
 
 class DuplicateBrandError < StandardError
 end
+
+class TransactionNotFoundError < StandardError
+end
+
+class CustomerNotFoundError < StandardError
+end

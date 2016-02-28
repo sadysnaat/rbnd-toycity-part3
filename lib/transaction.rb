@@ -5,12 +5,12 @@ class Transaction
   @@transactions = []
   def initialize(customer, product)
     @id = @@id
-    @@id += 1
     @customer = customer
     @product = product
     @timestamp = Time.now()
     perform_transaction
     @@transactions << self
+    @@id += 1
   end
 
   def self.all
@@ -22,6 +22,28 @@ class Transaction
       if transaction.id == id
         return transaction
       end
+    end
+    raise TransactionNotFoundError, "Transaction with id:#{id} not found."
+  end
+
+  # Function below return an array as multiple transactions
+  # may match the criteria
+
+  def self.find_by_customer(customer)
+    @@transactions.select do |transaction|
+      transaction.customer.name == customer.name
+    end
+  end
+
+  def self.find_by_product(product)
+    @@transactions.select do |transaction|
+      transaction.product.title == product.title
+    end
+  end
+
+  def self.find_by_brand(brand)
+    @@transactions.select do |transaction|
+      transaction.product.brand.name == brand.name
     end
   end
 
