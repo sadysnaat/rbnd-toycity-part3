@@ -1,0 +1,32 @@
+Q: How long did you spend working on this project?
+
+A: It took me around two weeks, I really liked this assignment.
+
+======================================================
+
+Q: What was the most rewarding challenge you conquered?
+
+A: implementing find methods and return capability
+
+======================================================
+
+Q: What two additional features did you build? Why?
+
+A: I implemented following Functions
+  -A way for customers to return items #As necessary part of inventory
+                                              system
+  -Added brands #Because i have the seen data before in toycity part 2
+                    and felt there should be a brand class
+  -Better ways to find transactions #Because finding by id can be
+                    sufficient for someone who knows the id of the product
+                    but if someone just comes and asks me to generate a
+                    report for particular brand, product another_brand
+                    customer these new functions would come handy
+
+======================================================
+
+Q: Where do you still have room to grow?
+
+A: I think I can learn more about gem and class related functions.
+    Ruby blocks and yield statement and advance topics like gem creation
+    and using some libraries like prawn for PDF report generation.
