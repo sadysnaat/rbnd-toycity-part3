@@ -25,9 +25,14 @@ class Customer
     raise CustomerNotFoundError, "No customer with name '#{name}'."
   end
 
+  def ==(another_customer)
+    self.name == another_customer.name && self.class == another_customer.class
+  end
+
   private
 
   def add_to_customers
+    # get all customers' name
     all_customers = @@customers.map { |customer| customer.name }
     if all_customers.include? @name
       raise DuplicateCustomerError, "'#{@name}' already exists."

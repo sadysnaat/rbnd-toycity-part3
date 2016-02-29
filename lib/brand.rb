@@ -8,6 +8,10 @@ class Brand
     add_to_brands
   end
 
+  def ==(another_brand)
+    self.name == another_brand.name && self.class == another_brand.class
+  end
+
   private
 
   def add_to_brands

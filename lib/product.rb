@@ -33,6 +33,11 @@ class Product
     end
   end
 
+  # since product title is unique
+  def ==(another_product)
+    self.title == another_product.title && self.class == another_product.class
+  end
+
   private
 
   def add_to_products

@@ -87,6 +87,7 @@ transactions_from_walter = Transaction.find_by_customer(walter)
 puts transactions_from_walter
 
 
+# Find Transactions by Product name
 transactions_for_nanoblock = Transaction.find_by_product(nanoblock)
 
 puts transactions_for_nanoblock
@@ -98,6 +99,7 @@ ironman = Product.find_by_title("LEGO Iron Man vs. Ultron")
 
 julia.purchase(ironman)
 
+# Find transactions by brand name
 transactions_for_lego = Transaction.find_by_brand(lego_brand)
 
 puts transactions_for_lego

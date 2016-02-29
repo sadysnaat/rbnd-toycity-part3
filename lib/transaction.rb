@@ -26,31 +26,31 @@ class Transaction
     raise TransactionNotFoundError, "Transaction with id:#{id} not found."
   end
 
-  # Function below return an array as multiple transactions
+  # Functions below return an array as multiple transactions
   # may match the criteria
 
   def self.find_by_customer(customer)
     @@transactions.select do |transaction|
-      transaction.customer.name == customer.name
+      transaction.customer == customer
     end
   end
 
   def self.find_by_product(product)
     @@transactions.select do |transaction|
-      transaction.product.title == product.title
+      transaction.product == product
     end
   end
 
   def self.find_by_brand(brand)
     @@transactions.select do |transaction|
-      transaction.product.brand.name == brand.name
+      transaction.product.brand == brand
     end
   end
 
   private
 
   def perform_transaction
-    if @product.stock < 1
+    if @product.stock < 1 # Check availability of product
       raise OutOfStockError, "'#{@product.title}' is out of stock."
     else
       @product.stock -= 1
